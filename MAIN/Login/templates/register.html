@@ -1,0 +1,54 @@
+{% extends 'main.html' %}
+{% block main %}
+
+<div class="flex items-center justify-center min-h-screen bg-gray-800">
+    <div id="container-register" class="w-full sm:w-96 md:w-80 lg:w-96 xl:w-96 bg-gray-900 rounded-lg shadow-lg p-6 text-center">
+        <div id="title" class="text-2xl text-white font-semibold border-b border-gray-700 py-4">
+            <i class="material-icons text-gray-400">lock</i> Register
+        </div>
+
+        <form class="mt-6" method="POST" action="{% url 'register' %}">
+            {% csrf_token %}
+            <div class="input mb-4">
+                <div class="input-addon flex items-center bg-gray-700 rounded-tl-md rounded-bl-md px-3">
+                    <i class="material-icons text-gray-400">Email</i>
+                </div>
+                <input id="email" type="email" placeholder="Email" required class="w-full rounded-md bg-gray-700 text-gray-300 px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-300 ease-in-out">
+            </div>
+
+            <div class="input mb-4">
+                <div class="input-addon flex items-center bg-gray-700 rounded-tl-md rounded-bl-md px-3">
+                    <i class="material-icons text-gray-400">Username</i>
+                </div>
+                <input id="username" type="text" placeholder="Username" required class="w-full rounded-md bg-gray-700 text-gray-300 px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-300 ease-in-out">
+            </div>
+
+            <div class="input mb-4">
+                <div class="input-addon flex items-center bg-gray-700 rounded-tl-md rounded-bl-md px-3">
+                    <i class="material-icons text-gray-400">Password</i>
+                </div>
+                <input id="password" type="password" placeholder="Password" required class="w-full rounded-md bg-gray-700 text-gray-300 px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-300 ease-in-out">
+            </div>
+
+            <div class="remember-me flex items-center mb-6">
+                <input type="checkbox" id="terms" required class="mr-2 transition duration-300 ease-in-out">
+                <label for="terms" class="text-gray-400">I accept Terms of Service</label>
+            </div>
+
+            <button type="submit" class="w-full bg-blue-600 text-white font-semibold py-2 rounded-md hover:bg-blue-700 transition duration-300 ease-in-out">
+                Register
+            </button>
+        </form>
+
+        <div class="privacy mt-4 text-sm">
+            <a href="#" class="text-gray-400 hover:text-gray-200 transition duration-300 ease-in-out">Privacy Policy</a>
+        </div>
+
+        <div class="register mt-6 border-t border-gray-700 pt-4 text-gray-400">
+            Do you already have an account? 
+            <a href="{% url 'login' %}" class="text-blue-500 hover:underline transition duration-300 ease-in-out">Log In here</a>
+        </div>
+    </div>
+</div>
+
+{% endblock main %}

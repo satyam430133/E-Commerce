@@ -1,9 +1,3 @@
-from django.shortcuts import render,redirect
-from django.views import View
+from django.shortcuts import render
 
-class Cards(View):
-    def get(self,request):
-        return render(request,'cards.html')
-    
-    def post(self,request):
-        return redirect('cards')
+# Create your views here.
