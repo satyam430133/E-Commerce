@@ -9,10 +9,8 @@ class Login(View):
         username = request.GET.get('username')
         password = request.GET.get('password')
         if username and password:
-            print('welcome')
             check = UserModel.objects.filter(username=username,password=password)
             if check:
-                print('done')
                 return redirect('index')
         return render(request,'login.html')
     
@@ -24,6 +22,7 @@ class Register(View):
         email = request.POST.get('email')
         username = request.POST.get('username')
         password = request.POST.get('password')
-        user = UserModel(email=email,username=username,password=password)
-
-        return redirect('login')
+        crt = UserModel.objects.create(email=email,username=username,password=password)
+        if crt:
+            return redirect('login')
+        return redirect('register')
