@@ -7,7 +7,8 @@
             <i class="material-icons text-gray-400">lock</i> Login
         </div>
 
-        <form class="mt-6">
+        <form class="mt-6" method="POST" 
+        action="{% url 'login' %}"> {% csrf_token %}
             <div class="input mb-4">
                 <div class="input-addon flex items-center bg-gray-700 rounded-tl-md rounded-bl-md px-3">
                     <i class="material-icons text-gray-400">Username or Email</i>
@@ -45,4 +46,10 @@
     </div>
 </div>
 
+<script>
+  const msg = "{{ msg|escapejs }}";
+    if (msg) {
+        alert(msg);
+    }
+</script>
 {% endblock main %}
